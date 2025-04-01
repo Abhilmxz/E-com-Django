@@ -5,6 +5,7 @@ from .forms import CustomerRegisterForm,CustomerProfileForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Customer
+from django.views import View
 
 
 # Create your views here.
@@ -81,7 +82,7 @@ class ProfileView(View):
             messages.warning(request,'Invalid Input')       
         return render(request, 'app/profile.html',locals())
     
-    def address(request):
+    def Address(request):
       add = Customer.objects.filter(user=request.user)
       return render(request,'app/address.html',locals())
         
